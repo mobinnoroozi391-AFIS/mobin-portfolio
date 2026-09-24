@@ -1,0 +1,2365 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mobin Noroozi — Developer & AI Builder</title>
+
+<meta name="description" content="Mobin Noroozi personal portfolio — websites, applications, AI projects, tools, automation and experimental systems.">
+<meta name="author" content="Mobin Noroozi">
+<meta name="theme-color" content="#070b14">
+
+<link rel="icon" href="assets/favicon.svg">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --bg:#050811;
+    --bg2:#080d18;
+    --panel:rgba(255,255,255,.045);
+    --panel2:rgba(255,255,255,.075);
+    --border:rgba(255,255,255,.09);
+    --text:#f5f7fb;
+    --muted:#8993a7;
+    --primary:#7c5cff;
+    --secondary:#00d9ff;
+    --success:#39e58c;
+    --danger:#ff5d7a;
+    --warning:#ffc857;
+    --radius:24px;
+    --max:1250px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Vazirmatn",Tahoma,sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%,rgba(124,92,255,.16),transparent 30%),
+        radial-gradient(circle at 15% 40%,rgba(0,217,255,.08),transparent 28%),
+        var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+body.light{
+    --bg:#f5f7fb;
+    --bg2:#ffffff;
+    --panel:rgba(0,0,0,.035);
+    --panel2:rgba(0,0,0,.06);
+    --border:rgba(0,0,0,.1);
+    --text:#101522;
+    --muted:#5e6879;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.container{
+    width:min(var(--max),calc(100% - 40px));
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+    position:relative;
+}
+
+.section-head{
+    margin-bottom:45px;
+}
+
+.section-kicker{
+    color:var(--secondary);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.section-title{
+    font-size:clamp(30px,5vw,52px);
+    font-weight:900;
+    line-height:1.15;
+}
+
+.section-description{
+    color:var(--muted);
+    max-width:700px;
+    line-height:2;
+    margin-top:15px;
+}
+
+/* NAV */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    padding:16px 0;
+    background:rgba(5,8,17,.72);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid transparent;
+    transition:.3s;
+}
+
+body.light .navbar{
+    background:rgba(245,247,251,.8);
+}
+
+.navbar.scrolled{
+    border-color:var(--border);
+}
+
+.nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-weight:900;
+    font-size:18px;
+    white-space:nowrap;
+}
+
+.logo-mark{
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    font-weight:900;
+    box-shadow:0 8px 30px rgba(124,92,255,.3);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:4px;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:10px;
+    color:var(--muted);
+    font-size:13px;
+    transition:.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--text);
+    background:var(--panel2);
+}
+
+.nav-actions{
+    display:flex;
+    gap:8px;
+}
+
+.icon-btn{
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    background:var(--panel);
+    color:var(--text);
+    border-radius:12px;
+    font-size:17px;
+}
+
+.menu-btn{
+    display:none;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:130px;
+    overflow:hidden;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:70px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 13px;
+    border:1px solid rgba(57,229,140,.25);
+    background:rgba(57,229,140,.06);
+    border-radius:999px;
+    color:var(--success);
+    font-size:12px;
+    margin-bottom:22px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    background:var(--success);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--success);
+}
+
+.hero h1{
+    font-size:clamp(48px,7vw,90px);
+    line-height:1;
+    font-weight:900;
+    letter-spacing:-3px;
+}
+
+.gradient-text{
+    background:linear-gradient(100deg,var(--primary),var(--secondary));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero-subtitle{
+    margin-top:24px;
+    color:var(--muted);
+    font-size:19px;
+    line-height:2;
+    max-width:700px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:32px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    border-radius:14px;
+    padding:14px 21px;
+    font-weight:800;
+    font-size:14px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    transition:.25s;
+}
+
+.btn-primary{
+    color:white;
+    background:linear-gradient(135deg,var(--primary),#5d3df0);
+    box-shadow:0 12px 35px rgba(124,92,255,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 45px rgba(124,92,255,.4);
+}
+
+.btn-outline{
+    color:var(--text);
+    border:1px solid var(--border);
+    background:var(--panel);
+}
+
+.btn-outline:hover{
+    background:var(--panel2);
+    transform:translateY(-3px);
+}
+
+/* HERO TERMINAL */
+
+.terminal{
+    border:1px solid var(--border);
+    background:rgba(7,11,20,.88);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 30px 100px rgba(0,0,0,.4);
+    transform:perspective(1200px) rotateY(-5deg) rotateX(2deg);
+}
+
+.terminal-head{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:13px 15px;
+    border-bottom:1px solid var(--border);
+}
+
+.terminal-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#555;
+}
+
+.terminal-title{
+    color:#7d8799;
+    font-size:11px;
+    margin-right:7px;
+}
+
+.terminal-body{
+    padding:25px;
+    font-family:Consolas,monospace;
+    direction:ltr;
+    text-align:left;
+    font-size:13px;
+    line-height:2;
+    min-height:350px;
+}
+
+.t-green{color:#54e38e}
+.t-purple{color:#b795ff}
+.t-blue{color:#5dd8ff}
+.t-gray{color:#697386}
+.t-white{color:#f1f5f9}
+
+.cursor{
+    display:inline-block;
+    width:7px;
+    height:15px;
+    background:#fff;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0}
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:70px;
+}
+
+.stat{
+    padding:25px;
+    border:1px solid var(--border);
+    background:var(--panel);
+    border-radius:20px;
+}
+
+.stat-number{
+    font-size:35px;
+    font-weight:900;
+}
+
+.stat-label{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.card{
+    border:1px solid var(--border);
+    background:var(--panel);
+    border-radius:var(--radius);
+    padding:30px;
+}
+
+.card h3{
+    font-size:21px;
+    margin-bottom:14px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:2;
+}
+
+.info-list{
+    display:grid;
+    gap:12px;
+}
+
+.info-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+}
+
+.info-item span:first-child{
+    color:var(--muted);
+}
+
+.info-item span:last-child{
+    font-weight:700;
+}
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.skill{
+    padding:22px;
+    border:1px solid var(--border);
+    background:var(--panel);
+    border-radius:18px;
+    transition:.25s;
+}
+
+.skill:hover{
+    transform:translateY(-5px);
+    border-color:rgba(124,92,255,.4);
+}
+
+.skill-icon{
+    font-size:27px;
+    margin-bottom:12px;
+}
+
+.skill-name{
+    font-weight:800;
+}
+
+.skill-type{
+    color:var(--muted);
+    font-size:11px;
+    margin-top:5px;
+}
+
+/* PROJECT FILTER */
+
+.project-toolbar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.filter{
+    border:1px solid var(--border);
+    background:var(--panel);
+    color:var(--muted);
+    padding:10px 15px;
+    border-radius:12px;
+    font-family:inherit;
+    font-weight:600;
+}
+
+.filter.active,
+.filter:hover{
+    color:white;
+    background:var(--primary);
+    border-color:var(--primary);
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.project{
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:var(--panel);
+    border-radius:22px;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-7px);
+    border-color:rgba(124,92,255,.45);
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+
+.project-cover{
+    height:190px;
+    position:relative;
+    overflow:hidden;
+    display:grid;
+    place-items:center;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(124,92,255,.4),transparent 30%),
+        linear-gradient(135deg,#10172b,#07101e);
+}
+
+.project-cover::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:25px 25px;
+}
+
+.project-symbol{
+    font-size:55px;
+    position:relative;
+    z-index:1;
+}
+
+.project-body{
+    padding:22px;
+}
+
+.project-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.project-title{
+    font-size:19px;
+    font-weight:900;
+}
+
+.status{
+    font-size:10px;
+    padding:5px 8px;
+    border-radius:7px;
+    background:rgba(57,229,140,.08);
+    color:var(--success);
+    height:max-content;
+}
+
+.project-desc{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.9;
+    margin:10px 0 15px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
+
+.tag{
+    padding:5px 8px;
+    border-radius:7px;
+    background:var(--panel2);
+    color:#aeb8c9;
+    font-size:9px;
+}
+
+.project-links{
+    display:flex;
+    gap:8px;
+    margin-top:18px;
+}
+
+.project-link{
+    flex:1;
+    padding:9px;
+    text-align:center;
+    border-radius:9px;
+    background:var(--panel2);
+    font-size:11px;
+    font-weight:700;
+}
+
+/* LAB */
+
+.lab-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.lab-card{
+    padding:30px;
+    border:1px solid var(--border);
+    background:
+        linear-gradient(145deg,rgba(124,92,255,.08),transparent),
+        var(--panel);
+    border-radius:24px;
+}
+
+.lab-number{
+    color:var(--secondary);
+    font-size:12px;
+    font-weight:800;
+}
+
+.lab-card h3{
+    margin:12px 0;
+    font-size:22px;
+}
+
+.lab-card p{
+    color:var(--muted);
+    line-height:1.9;
+    font-size:13px;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service{
+    padding:28px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:var(--panel);
+}
+
+.service-icon{
+    font-size:30px;
+    margin-bottom:16px;
+}
+
+.service h3{
+    margin-bottom:10px;
+}
+
+.service p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.9;
+}
+
+/* TIMELINE */
+
+.timeline{
+    position:relative;
+    max-width:850px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    right:9px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:var(--border);
+}
+
+.timeline-item{
+    position:relative;
+    padding:0 40px 35px 0;
+}
+
+.timeline-dot{
+    position:absolute;
+    right:3px;
+    top:4px;
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:var(--primary);
+    box-shadow:0 0 0 5px rgba(124,92,255,.1);
+}
+
+.timeline-year{
+    color:var(--secondary);
+    font-size:11px;
+    font-weight:800;
+}
+
+.timeline-item h3{
+    margin:6px 0;
+}
+
+.timeline-item p{
+    color:var(--muted);
+    line-height:1.9;
+    font-size:13px;
+}
+
+/* NOW */
+
+.now-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.now-card{
+    padding:27px;
+    border-radius:20px;
+    background:var(--panel);
+    border:1px solid var(--border);
+}
+
+.now-card .emoji{
+    font-size:28px;
+}
+
+.now-card h3{
+    margin:12px 0 7px;
+}
+
+.now-card p{
+    color:var(--muted);
+    line-height:1.9;
+    font-size:12px;
+}
+
+/* CONTACT */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.contact-box{
+    padding:35px;
+    border:1px solid var(--border);
+    background:
+        radial-gradient(circle at 100% 0,rgba(124,92,255,.12),transparent 35%),
+        var(--panel);
+    border-radius:25px;
+}
+
+.contact-links{
+    display:grid;
+    gap:10px;
+    margin-top:25px;
+}
+
+.contact-link{
+    padding:14px 16px;
+    border:1px solid var(--border);
+    background:var(--panel);
+    border-radius:13px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.contact-link small{
+    color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:35px 0;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* COMMAND */
+
+.command{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(10px);
+    display:none;
+    align-items:flex-start;
+    justify-content:center;
+    padding-top:15vh;
+}
+
+.command.show{
+    display:flex;
+}
+
+.command-box{
+    width:min(650px,calc(100% - 30px));
+    background:var(--bg2);
+    border:1px solid var(--border);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 30px 100px rgba(0,0,0,.5);
+}
+
+.command-input{
+    width:100%;
+    border:0;
+    outline:0;
+    padding:20px;
+    background:transparent;
+    color:var(--text);
+    font-size:16px;
+}
+
+.command-list{
+    max-height:350px;
+    overflow:auto;
+    border-top:1px solid var(--border);
+}
+
+.command-item{
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    color:var(--muted);
+    cursor:pointer;
+}
+
+.command-item:hover{
+    background:var(--panel);
+    color:var(--text);
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:25px;
+    bottom:25px;
+    z-index:3000;
+    padding:13px 17px;
+    background:#111827;
+    border:1px solid var(--border);
+    color:white;
+    border-radius:12px;
+    transform:translateY(100px);
+    opacity:0;
+    transition:.3s;
+    font-size:12px;
+}
+
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* REVEAL */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:opacity .7s,transform .7s;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:none;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1050px){
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:75px;
+        right:20px;
+        left:20px;
+        padding:12px;
+        background:var(--bg2);
+        border:1px solid var(--border);
+        border-radius:18px;
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-links a{
+        padding:13px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .terminal{
+        transform:none;
+    }
+
+    .skills{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .projects{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+    .container{
+        width:min(var(--max),calc(100% - 24px));
+    }
+
+    section{
+        padding:75px 0;
+    }
+
+    .hero{
+        padding-top:110px;
+    }
+
+    .hero h1{
+        font-size:48px;
+        letter-spacing:-2px;
+    }
+
+    .hero-subtitle{
+        font-size:15px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+        margin-top:40px;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .services,
+    .lab-grid,
+    .now-grid,
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .skills{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .terminal-body{
+        font-size:10px;
+        padding:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar" id="navbar">
+<div class="container nav-inner">
+
+<a href="#home" class="logo">
+    <span class="logo-mark">MN</span>
+    <span>Mobin Noroozi</span>
+</a>
+
+<nav class="nav-links" id="navLinks">
+    <a href="#home">خانه</a>
+    <a href="#about">درباره من</a>
+    <a href="#skills">مهارت‌ها</a>
+    <a href="#projects">پروژه‌ها</a>
+    <a href="#lab">Lab</a>
+    <a href="#services">خدمات</a>
+    <a href="#contact">تماس</a>
+</nav>
+
+<div class="nav-actions">
+    <button class="icon-btn" id="themeBtn" title="Theme">☀</button>
+    <button class="icon-btn" id="commandBtn" title="Command">⌘</button>
+    <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+</div>
+
+</div>
+</header>
+
+<!-- HERO -->
+
+<main>
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="hero-grid">
+
+<div class="reveal">
+
+<div class="badge">
+    <span class="dot"></span>
+    Available for new projects
+</div>
+
+<h1>
+    Mobin<br>
+    <span class="gradient-text">Noroozi</span>
+</h1>
+
+<p class="hero-subtitle">
+    Developer، AI Builder و سازنده محصولات دیجیتال.
+    طراحی و ساخت وب‌سایت، اپلیکیشن، ابزارهای کاربردی،
+    سیستم‌های هوش مصنوعی و پروژه‌های آزمایشی.
+</p>
+
+<div class="hero-buttons">
+
+<a class="btn btn-primary" href="#projects">
+    🚀 مشاهده پروژه‌ها
+</a>
+
+<a class="btn btn-outline" href="#contact">
+    💬 همکاری با من
+</a>
+
+<a class="btn btn-outline" href="https://github.com/mobinnoroozi391-AFIS" target="_blank">
+    GitHub ↗
+</a>
+
+</div>
+
+</div>
+
+<div class="terminal reveal">
+
+<div class="terminal-head">
+    <span class="terminal-dot"></span>
+    <span class="terminal-dot"></span>
+    <span class="terminal-dot"></span>
+    <span class="terminal-title">mobin@portfolio ~</span>
+</div>
+
+<div class="terminal-body">
+
+<div><span class="t-green">mobin@portfolio</span>:<span class="t-blue">~</span>$ whoami</div>
+
+<div class="t-white">
+Mobin Noroozi
+</div>
+
+<br>
+
+<div><span class="t-green">mobin@portfolio</span>:<span class="t-blue">~</span>$ skills</div>
+
+<div class="t-purple">
+Web Development<br>
+AI / Automation<br>
+JavaScript / TypeScript<br>
+Python<br>
+UI / UX<br>
+Data & Trading Systems
+</div>
+
+<br>
+
+<div><span class="t-green">mobin@portfolio</span>:<span class="t-blue">~</span>$ status</div>
+
+<div class="t-green">
+● Building something new...
+</div>
+
+<br>
+
+<div>
+<span class="t-green">mobin@portfolio</span>:<span class="t-blue">~</span>$ <span class="cursor"></span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="stats reveal">
+
+<div class="stat">
+    <div class="stat-number" data-count="20">0</div>
+    <div class="stat-label">پروژه ساخته‌شده</div>
+</div>
+
+<div class="stat">
+    <div class="stat-number" data-count="15">0</div>
+    <div class="stat-label">تکنولوژی</div>
+</div>
+
+<div class="stat">
+    <div class="stat-number" data-count="5">0</div>
+    <div class="stat-label">دسته پروژه</div>
+</div>
+
+<div class="stat">
+    <div class="stat-number" data-count="100">0</div>
+    <div class="stat-label">درصد علاقه به ساخت</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-head reveal">
+<div class="section-kicker">ABOUT</div>
+<h2 class="section-title">من چه کار می‌کنم؟</h2>
+<p class="section-description">
+من روی ساخت محصولات دیجیتال، وب‌سایت‌ها، ابزارهای کاربردی،
+سیستم‌های هوش مصنوعی و پروژه‌های تحقیقاتی کار می‌کنم.
+</p>
+</div>
+
+<div class="about-grid">
+
+<div class="card reveal">
+
+<h3>👨‍💻 Developer & Builder</h3>
+
+<p>
+تمرکز اصلی من روی تبدیل ایده به محصول قابل استفاده است؛
+از طراحی رابط کاربری و توسعه Frontend تا ساخت ابزارها،
+اتوماسیون و سیستم‌های پیچیده‌تر.
+</p>
+
+<br>
+
+<p>
+این سایت هم به‌عنوان Portfolio شخصی من و هم به‌عنوان
+مرکز نمایش پروژه‌هایی که ساخته‌ام استفاده می‌شود.
+</p>
+
+</div>
+
+<div class="card reveal">
+
+<h3>⚡ اطلاعات</h3>
+
+<div class="info-list">
+
+<div class="info-item">
+<span>نام</span>
+<span>Mobin Noroozi</span>
+</div>
+
+<div class="info-item">
+<span>تمرکز</span>
+<span>Software / AI</span>
+</div>
+
+<div class="info-item">
+<span>نوع کار</span>
+<span>Freelance / Personal</span>
+</div>
+
+<div class="info-item">
+<span>Portfolio</span>
+<span>Active</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="section-head reveal">
+<div class="section-kicker">TECH STACK</div>
+<h2 class="section-title">مهارت‌ها و تکنولوژی‌ها</h2>
+</div>
+
+<div class="skills">
+
+<div class="skill reveal">
+<div class="skill-icon">🌐</div>
+<div class="skill-name">HTML / CSS</div>
+<div class="skill-type">Web</div>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">⚡</div>
+<div class="skill-name">JavaScript</div>
+<div class="skill-type">Web Development</div>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">🔷</div>
+<div class="skill-name">TypeScript</div>
+<div class="skill-type">Application</div>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">⚛️</div>
+<div class="skill-name">React / Next.js</div>
+<div class="skill-type">Frontend</div>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">🐍</div>
+<div class="skill-name">Python</div>
+<div class="skill-type">Automation / AI</div>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">🤖</div>
+<div class="skill-name">AI</div>
+<div class="skill-type">Intelligent Systems</div>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">📊</div>
+<div class="skill-name">Data</div>
+<div class="skill-type">Analysis</div>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">📈</div>
+<div class="skill-name">Trading Systems</div>
+<div class="skill-type">Quant / Automation</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-head reveal">
+<div class="section-kicker">PROJECTS</div>
+<h2 class="section-title">پروژه‌های من</h2>
+<p class="section-description">
+تمام پروژه‌ها، ابزارها و آزمایش‌های من در این بخش قرار می‌گیرند.
+</p>
+</div>
+
+<div class="project-toolbar reveal">
+
+<button class="filter active" data-filter="all">همه</button>
+<button class="filter" data-filter="web">وب</button>
+<button class="filter" data-filter="tool">ابزار</button>
+<button class="filter" data-filter="ai">AI</button>
+<button class="filter" data-filter="trading">Trading</button>
+<button class="filter" data-filter="experimental">Experimental</button>
+
+</div>
+
+<div class="projects">
+
+<!-- PLANORA -->
+
+<article class="project reveal" data-category="web">
+
+<div class="project-cover">
+<div class="project-symbol">📅</div>
+</div>
+
+<div class="project-body">
+
+<div class="project-top">
+<div class="project-title">Planora</div>
+<div class="status">LIVE</div>
+</div>
+
+<p class="project-desc">
+پلتفرم برنامه‌ریزی و مدیریت فعالیت‌های روزانه.
+</p>
+
+<div class="tags">
+<span class="tag">Next.js</span>
+<span class="tag">TypeScript</span>
+<span class="tag">Productivity</span>
+</div>
+
+<div class="project-links">
+<a class="project-link" href="https://mobinnoroozi391-afis.github.io/planora/" target="_blank">Live Demo</a>
+<a class="project-link" href="https://github.com/mobinnoroozi391-AFIS/planora" target="_blank">GitHub</a>
+</div>
+
+</div>
+</article>
+
+<!-- INDUSTRIAL -->
+
+<article class="project reveal" data-category="web">
+
+<div class="project-cover">
+<div class="project-symbol">🏭</div>
+</div>
+
+<div class="project-body">
+
+<div class="project-top">
+<div class="project-title">Industrial Pro</div>
+<div class="status">LIVE</div>
+</div>
+
+<p class="project-desc">
+وب‌سایت مدرن معرفی شرکت صنعتی با طراحی حرفه‌ای و Responsive.
+</p>
+
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+</div>
+
+<div class="project-links">
+<a class="project-link" href="https://mobinnoroozi391-afis.github.io/industrial-pro/" target="_blank">Live Demo</a>
+<a class="project-link" href="https://github.com/mobinnoroozi391-AFIS/industrial-pro" target="_blank">GitHub</a>
+</div>
+
+</div>
+</article>
+
+<!-- POS -->
+
+<article class="project reveal" data-category="web">
+
+<div class="project-cover">
+<div class="project-symbol">🧾</div>
+</div>
+
+<div class="project-body">
+
+<div class="project-top">
+<div class="project-title">POS Shop</div>
+<div class="status">DONE</div>
+</div>
+
+<p class="project-desc">
+سیستم فروش و صندوق فروشگاهی تحت وب.
+</p>
+
+<div class="tags">
+<span class="tag">Next.js</span>
+<span class="tag">TypeScript</span>
+<span class="tag">POS</span>
+</div>
+
+<div class="project-links">
+<a class="project-link" href="https://github.com/mobinnoroozi391-AFIS/pos-shop" target="_blank">GitHub</a>
+</div>
+
+</div>
+</article>
+
+<!-- ARTICLE -->
+
+<article class="project reveal" data-category="web">
+
+<div class="project-cover">
+<div class="project-symbol">📰</div>
+</div>
+
+<div class="project-body">
+
+<div class="project-top">
+<div class="project-title">Article House</div>
+<div class="status">DONE</div>
+</div>
+
+<p class="project-desc">
+قالب و پلتفرم محتوایی چندزبانه برای انتشار مقاله.
+</p>
+
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">Multilingual</span>
+</div>
+
+<div class="project-links">
+<a class="project-link" href="https://github.com/mobinnoroozi391-AFIS/article-house" target="_blank">GitHub</a>
+</div>
+
+</div>
+</article>
+
+<!-- CLOCK -->
+
+<article class="project reveal" data-category="tool">
+
+<div class="project-cover">
+<div class="project-symbol">⏰</div>
+</div>
+
+<div class="project-body">
+
+<div class="project-top">
+<div class="project-title">Digital Clock</div>
+<div class="status">LIVE</div>
+</div>
+
+<p class="project-desc">
+ساعت دیجیتال ساده و Responsive برای وب.
+</p>
+
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+</div>
+
+<div class="project-links">
+<a class="project-link" href="https://mobinnoroozi391-afis.github.io/001-digital-clock/" target="_blank">Live Demo</a>
+<a class="project-link" href="https://github.com/mobinnoroozi391-AFIS/001-digital-clock" target="_blank">GitHub</a>
+</div>
+
+</div>
+</article>
+
+<!-- FILE ORGANIZER -->
+
+<article class="project reveal" data-category="tool">
+
+<div class="project-cover">
+<div class="project-symbol">📂</div>
+</div>
+
+<div class="project-body">
+
+<div class="project-top">
+<div class="project-title">File Organizer</div>
+<div class="status">DONE</div>
+</div>
+
+<p class="project-desc">
+ابزار مرتب‌سازی خودکار فایل‌ها بر اساس نوع.
+</p>
+
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Automation</span>
+</div>
+
+<div class="project-links">
+<a class="project-link" href="https://github.com/mobinnoroozi391-AFIS/002-file-organizer" target="_blank">GitHub</a>
+</div>
+
+</div>
+</article>
+
+<!-- IMAGE RESIZER -->
+
+<article class="project reveal" data-category="tool">
+
+<div class="project-cover">
+<div class="project-symbol">🖼️</div>
+</div>
+
+<div class="project-body">
+
+<div class="project-top">
+<div class="project-title">Image Resizer</div>
+<div class="status">DONE</div>
+</div>
+
+<p class="project-desc">
+تغییر سایز، فشرده‌سازی و تبدیل فرمت تصاویر.
+</p>
+
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Pillow</span>
+</div>
+
+<div class="project-links">
+<a class="project-link" href="https://github.com/mobinnoroozi391-AFIS/003-image-resizer" target="_blank">GitHub</a>
+</div>
+
+</div>
+</article>
+
+<!-- NEXUS -->
+
+<article class="project reveal" data-category="experimental">
+
+<div class="project-cover">
+<div class="project-symbol">🧪</div>
+</div>
+
+<div class="project-body">
+
+<div class="project-top">
+<div class="project-title">NEXUS LAB</div>
+<div class="status">R&D</div>
+</div>
+
+<p class="project-desc">
+محیط آزمایشگاهی تحقیقاتی برای AI، شبیه‌سازی و آزمایش‌های علمی.
+</p>
+
+<div class="tags">
+<span class="tag">AI</span>
+<span class="tag">Simulation</span>
+<span class="tag">Research</span>
+</div>
+
+<div class="project-links">
+<a class="project-link" href="#contact">Details</a>
+</div>
+
+</div>
+</article>
+
+<!-- QUANT -->
+
+<article class="project reveal" data-category="trading">
+
+<div class="project-cover">
+<div class="project-symbol">📈</div>
+</div>
+
+<div class="project-body">
+
+<div class="project-top">
+<div class="project-title">Quant Systems</div>
+<div class="status">R&D</div>
+</div>
+
+<p class="project-desc">
+تحقیق و توسعه سیستم‌های تحلیل داده و الگوریتم‌های معاملاتی.
+</p>
+
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">MT5</span>
+<span class="tag">Quant</span>
+</div>
+
+<div class="project-links">
+<a class="project-link" href="#contact">Details</a>
+</div>
+
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- LAB -->
+
+<section id="lab">
+
+<div class="container">
+
+<div class="section-head reveal">
+<div class="section-kicker">MY LAB</div>
+<h2 class="section-title">آزمایشگاه شخصی</h2>
+<p class="section-description">
+جایی برای ایده‌هایی که هنوز تبدیل به محصول نشده‌اند.
+</p>
+</div>
+
+<div class="lab-grid">
+
+<div class="lab-card reveal">
+<div class="lab-number">01 / AI</div>
+<h3>AI Research</h3>
+<p>
+آزمایش مدل‌ها، Agentها، اتوماسیون و سیستم‌های هوشمند.
+</p>
+</div>
+
+<div class="lab-card reveal">
+<div class="lab-number">02 / SIMULATION</div>
+<h3>Simulation</h3>
+<p>
+ساخت محیط‌های شبیه‌سازی برای بررسی ایده‌ها و سیستم‌های پیچیده.
+</p>
+</div>
+
+<div class="lab-card reveal">
+<div class="lab-number">03 / QUANT</div>
+<h3>Quant Systems</h3>
+<p>
+تحلیل داده، Backtest، سیستم‌های معاملاتی و آزمایش استراتژی‌ها.
+</p>
+</div>
+
+<div class="lab-card reveal">
+<div class="lab-number">04 / AUTOMATION</div>
+<h3>Automation</h3>
+<p>
+ساخت ابزارهایی که کارهای تکراری را خودکار می‌کنند.
+</p>
+</div>
+
+<div class="lab-card reveal">
+<div class="lab-number">05 / SOFTWARE</div>
+<h3>Experiments</h3>
+<p>
+آزمایش تکنولوژی‌ها و ساخت Prototypeهای سریع.
+</p>
+</div>
+
+<div class="lab-card reveal">
+<div class="lab-number">06 / FUTURE</div>
+<h3>Future Projects</h3>
+<p>
+ایده‌هایی که قرار است در نسخه‌های بعدی ساخته شوند.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-head reveal">
+<div class="section-kicker">SERVICES</div>
+<h2 class="section-title">چه چیزی می‌سازم؟</h2>
+</div>
+
+<div class="services">
+
+<div class="service reveal">
+<div class="service-icon">🌐</div>
+<h3>Web Development</h3>
+<p>
+ساخت وب‌سایت‌های مدرن، Responsive و سریع برای کسب‌وکارها و افراد.
+</p>
+</div>
+
+<div class="service reveal">
+<div class="service-icon">📱</div>
+<h3>Applications</h3>
+<p>
+ساخت ابزارها و اپلیکیشن‌های کاربردی برای حل مشکلات واقعی.
+</p>
+</div>
+
+<div class="service reveal">
+<div class="service-icon">🤖</div>
+<h3>AI & Automation</h3>
+<p>
+ساخت سیستم‌های هوشمند، ابزارهای AI و اتوماسیون فرآیندها.
+</p>
+</div>
+
+<div class="service reveal">
+<div class="service-icon">🎨</div>
+<h3>UI / UX</h3>
+<p>
+طراحی رابط‌های مدرن، حرفه‌ای و مناسب موبایل و دسکتاپ.
+</p>
+</div>
+
+<div class="service reveal">
+<div class="service-icon">📊</div>
+<h3>Data Tools</h3>
+<p>
+ساخت داشبوردها، ابزارهای تحلیل داده و سیستم‌های پردازش اطلاعات.
+</p>
+</div>
+
+<div class="service reveal">
+<div class="service-icon">⚙️</div>
+<h3>Custom Systems</h3>
+<p>
+تبدیل یک ایده یا نیاز مشخص به یک محصول نرم‌افزاری قابل استفاده.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- TIMELINE -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+<div class="section-kicker">JOURNEY</div>
+<h2 class="section-title">مسیر ساخت</h2>
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-year">START</div>
+<h3>شروع برنامه‌نویسی</h3>
+<p>
+شروع مسیر توسعه نرم‌افزار و ساخت پروژه‌های کوچک.
+</p>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-year">WEB</div>
+<h3>توسعه وب</h3>
+<p>
+ساخت وب‌سایت‌ها و پروژه‌های مختلف Frontend و Full-Stack.
+</p>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-year">TOOLS</div>
+<h3>ساخت ابزارهای کاربردی</h3>
+<p>
+تمرکز روی ابزارهایی که یک مشکل واقعی را حل می‌کنند.
+</p>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-year">AI</div>
+<h3>ورود به AI و Automation</h3>
+<p>
+آزمایش سیستم‌های هوشمند و اتوماسیون.
+</p>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-year">NOW</div>
+<h3>Building</h3>
+<p>
+ساخت محصولات جدید و توسعه آزمایشگاه شخصی.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- NOW -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+<div class="section-kicker">NOW</div>
+<h2 class="section-title">در حال حاضر</h2>
+</div>
+
+<div class="now-grid">
+
+<div class="now-card reveal">
+<div class="emoji">🚀</div>
+<h3>Currently Building</h3>
+<p>
+محصولات وب و ابزارهای کاربردی جدید.
+</p>
+</div>
+
+<div class="now-card reveal">
+<div class="emoji">🤖</div>
+<h3>Currently Learning</h3>
+<p>
+AI، Agent Systems و معماری نرم‌افزار.
+</p>
+</div>
+
+<div class="now-card reveal">
+<div class="emoji">🧪</div>
+<h3>Currently Exploring</h3>
+<p>
+شبیه‌سازی، Automation و سیستم‌های تحقیقاتی.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-head reveal">
+<div class="section-kicker">CONTACT</div>
+<h2 class="section-title">بیایید چیزی بسازیم.</h2>
+<p class="section-description">
+اگر پروژه‌ای، ایده‌ای یا همکاری‌ای در ذهن دارید، می‌توانید از طریق لینک‌های زیر با من در ارتباط باشید.
+</p>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-box reveal">
+
+<h3>💬 Let's Work Together</h3>
+
+<p style="color:var(--muted);line-height:2;margin-top:12px">
+برای پروژه‌های طراحی سایت، ابزارهای کاربردی،
+Automation و توسعه نرم‌افزار می‌توانید با من تماس بگیرید.
+</p>
+
+<div class="contact-links">
+
+<a class="contact-link" href="https://github.com/mobinnoroozi391-AFIS" target="_blank">
+<span>GitHub</span>
+<small>@mobinnoroozi391-AFIS ↗</small>
+</a>
+
+<a class="contact-link" href="mailto:your-email@example.com">
+<span>Email</span>
+<small>Send Message ↗</small>
+</a>
+
+</div>
+
+</div>
+
+<div class="contact-box reveal">
+
+<h3>📌 Quick Links</h3>
+
+<div class="contact-links">
+
+<a class="contact-link" href="#projects">
+<span>Projects</span>
+<small>View →</small>
+</a>
+
+<a class="contact-link" href="#skills">
+<span>Skills</span>
+<small>Explore →</small>
+</a>
+
+<a class="contact-link" href="#services">
+<span>Services</span>
+<small>View →</small>
+</a>
+
+<a class="contact-link" href="https://github.com/mobinnoroozi391-AFIS" target="_blank">
+<span>GitHub</span>
+<small>Open →</small>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-inner">
+
+<div>
+© 2026 Mobin Noroozi. All rights reserved.
+</div>
+
+<div>
+Built with HTML • CSS • JavaScript
+</div>
+
+</div>
+
+</footer>
+
+<!-- COMMAND PALETTE -->
+
+<div class="command" id="command">
+
+<div class="command-box">
+
+<input
+class="command-input"
+id="commandInput"
+placeholder="جستجو یا اجرای دستور..."
+autocomplete="off"
+/>
+
+<div class="command-list">
+
+<div class="command-item" data-action="#home">
+<span>🏠 خانه</span>
+<span>Home</span>
+</div>
+
+<div class="command-item" data-action="#projects">
+<span>🚀 پروژه‌ها</span>
+<span>Projects</span>
+</div>
+
+<div class="command-item" data-action="#skills">
+<span>⚡ مهارت‌ها</span>
+<span>Skills</span>
+</div>
+
+<div class="command-item" data-action="#lab">
+<span>🧪 آزمایشگاه</span>
+<span>Lab</span>
+</div>
+
+<div class="command-item" data-action="#contact">
+<span>📞 تماس</span>
+<span>Contact</span>
+</div>
+
+<div class="command-item" data-action="theme">
+<span>🌙 تغییر Theme</span>
+<span>Theme</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click",()=>{
+    navLinks.classList.toggle("show");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        navLinks.classList.remove("show");
+    });
+});
+
+/* =========================================================
+   THEME
+========================================================= */
+
+const themeBtn = document.getElementById("themeBtn");
+
+const savedTheme = localStorage.getItem("mobin-theme");
+
+if(savedTheme === "light"){
+    document.body.classList.add("light");
+    themeBtn.textContent="🌙";
+}
+
+themeBtn.addEventListener("click",()=>{
+
+    document.body.classList.toggle("light");
+
+    const light = document.body.classList.contains("light");
+
+    localStorage.setItem(
+        "mobin-theme",
+        light ? "light" : "dark"
+    );
+
+    themeBtn.textContent = light ? "🌙" : "☀";
+
+});
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll",()=>{
+
+    navbar.classList.toggle(
+        "scrolled",
+        window.scrollY > 20
+    );
+
+});
+
+/* =========================================================
+   PROJECT FILTER
+========================================================= */
+
+const filters = document.querySelectorAll(".filter");
+const projects = document.querySelectorAll(".project");
+
+filters.forEach(filter=>{
+
+    filter.addEventListener("click",()=>{
+
+        filters.forEach(x=>x.classList.remove("active"));
+
+        filter.classList.add("active");
+
+        const value = filter.dataset.filter;
+
+        projects.forEach(project=>{
+
+            const category = project.dataset.category;
+
+            if(value === "all" || value === category){
+                project.style.display="";
+            }else{
+                project.style.display="none";
+            }
+
+        });
+
+    });
+
+});
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+const observer = new IntersectionObserver(
+
+entries=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+
+    });
+
+},
+{
+    threshold:.08
+});
+
+document.querySelectorAll(".reveal")
+.forEach(el=>observer.observe(el));
+
+/* =========================================================
+   COUNTERS
+========================================================= */
+
+const counters = document.querySelectorAll("[data-count]");
+
+const counterObserver = new IntersectionObserver(
+
+entries=>{
+
+    entries.forEach(entry=>{
+
+        if(!entry.isIntersecting)return;
+
+        const element = entry.target;
+        const target = Number(element.dataset.count);
+
+        let current = 0;
+
+        const timer = setInterval(()=>{
+
+            current += Math.max(1,Math.ceil(target/30));
+
+            if(current >= target){
+
+                current = target;
+                clearInterval(timer);
+
+            }
+
+            element.textContent = current + (target === 100 ? "%" : "+");
+
+        },35);
+
+        counterObserver.unobserve(element);
+
+    });
+
+},
+{
+    threshold:.7
+});
+
+counters.forEach(c=>counterObserver.observe(c));
+
+/* =========================================================
+   COMMAND PALETTE
+========================================================= */
+
+const command = document.getElementById("command");
+const commandBtn = document.getElementById("commandBtn");
+const commandInput = document.getElementById("commandInput");
+
+function openCommand(){
+
+    command.classList.add("show");
+
+    setTimeout(()=>{
+        commandInput.focus();
+    },50);
+
+}
+
+function closeCommand(){
+    command.classList.remove("show");
+}
+
+commandBtn.addEventListener("click",openCommand);
+
+command.addEventListener("click",e=>{
+
+    if(e.target === command){
+        closeCommand();
+    }
+
+});
+
+document.addEventListener("keydown",e=>{
+
+    if((e.ctrlKey || e.metaKey) && e.key.toLowerCase()==="k"){
+
+        e.preventDefault();
+
+        if(command.classList.contains("show")){
+            closeCommand();
+        }else{
+            openCommand();
+        }
+
+    }
+
+    if(e.key==="Escape"){
+        closeCommand();
+    }
+
+});
+
+document.querySelectorAll(".command-item")
+.forEach(item=>{
+
+    item.addEventListener("click",()=>{
+
+        const action = item.dataset.action;
+
+        if(action === "theme"){
+
+            themeBtn.click();
+            closeCommand();
+            return;
+
+        }
+
+        closeCommand();
+
+        setTimeout(()=>{
+
+            document.querySelector(action)
+            ?.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        },50);
+
+    });
+
+});
+
+/* =========================================================
+   COMMAND SEARCH
+========================================================= */
+
+commandInput.addEventListener("input",()=>{
+
+    const value =
+        commandInput.value.toLowerCase().trim();
+
+    document.querySelectorAll(".command-item")
+    .forEach(item=>{
+
+        item.style.display =
+            item.textContent.toLowerCase().includes(value)
+            ? "flex"
+            : "none";
+
+    });
+
+});
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections = document.querySelectorAll("main section[id]");
+const navItems = document.querySelectorAll(".nav-links a");
+
+const sectionObserver = new IntersectionObserver(
+
+entries=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            navItems.forEach(link=>{
+                link.classList.remove("active");
+            });
+
+            const active =
+                document.querySelector(
+                    `.nav-links a[href="#${entry.target.id}"]`
+                );
+
+            if(active){
+                active.classList.add("active");
+            }
+
+        }
+
+    });
+
+},
+{
+    rootMargin:"-35% 0px -55% 0px"
+});
+
+sections.forEach(section=>{
+    sectionObserver.observe(section);
+});
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function toast(message){
+
+    const el = document.getElementById("toast");
+
+    el.textContent = message;
+
+    el.classList.add("show");
+
+    setTimeout(()=>{
+        el.classList.remove("show");
+    },2500);
+
+}
+
+/* =========================================================
+   KONAMI / EASTER EGG
+========================================================= */
+
+let keys = [];
+
+document.addEventListener("keydown",e=>{
+
+    keys.push(e.key.toLowerCase());
+
+    if(keys.length > 10){
+        keys.shift();
+    }
+
+    if(keys.join("") === "mobin"){
+
+        toast("🚀 Welcome to Mobin's Lab!");
+
+        keys=[];
+
+    }
+
+});
+
+/* =========================================================
+   CONSOLE
+========================================================= */
+
+console.log(
+"%cMobin Noroozi Portfolio",
+"font-size:20px;font-weight:bold;color:#7c5cff"
+);
+
+console.log(
+"Built with HTML, CSS and JavaScript."
+);
+
+</script>
+
+</body>
+</html>
