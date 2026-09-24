@@ -45,7 +45,7 @@ html{
 body{
     font-family:"Vazirmatn",Tahoma,sans-serif;
     background:
-        radial-gradient(circle at 80% 10%,rgba(124,92,255,.16),transparent 30%),
+        radial-gradient(circle at — 10%,rgba(124,92,255,.16),transparent 30%),
         radial-gradient(circle at 15% 40%,rgba(0,217,255,.08),transparent 28%),
         var(--bg);
     color:var(--text);
@@ -1296,7 +1296,818 @@ Data & Trading Systems
 
 <!-- PROJECTS -->
 
-<section id="projects">
+<!-- REAL-GITHUB-DATA-START -->
+
+<section
+    class="section real-github-section"
+    id="github-live-data"
+>
+
+    <div class="section-head reveal">
+
+        <div>
+
+            <span class="eyebrow">
+                LIVE DATA
+            </span>
+
+            <h2>
+                آمار واقعی GitHub
+            </h2>
+
+            <p>
+                این اطلاعات مستقیماً از Repositoryهای عمومی GitHub
+                دریافت می‌شود و عدد دستی در آن وجود ندارد.
+            </p>
+
+        </div>
+
+        <a
+            class="btn btn-primary"
+            href="https://github.com/mobinnoroozi391-AFIS"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            GitHub ↗
+        </a>
+
+    </div>
+
+    <div
+        id="githubLiveStatus"
+        class="github-live-status"
+    >
+
+        <div class="github-live-loader"></div>
+
+        <span>
+            در حال دریافت اطلاعات واقعی GitHub...
+        </span>
+
+    </div>
+
+    <div
+        id="githubRealStats"
+        class="real-stats-grid"
+    >
+
+        <div class="real-stat-card">
+
+            <span class="real-stat-label">
+                PROJECTS
+            </span>
+
+            <strong
+                id="realProjectsCount"
+            >
+                —
+            </strong>
+
+            <small>
+                پروژه‌های عمومی اصلی
+            </small>
+
+        </div>
+
+        <div class="real-stat-card">
+
+            <span class="real-stat-label">
+                STARS
+            </span>
+
+            <strong
+                id="realStarsCount"
+            >
+                —
+            </strong>
+
+            <small>
+                مجموع Starهای واقعی
+            </small>
+
+        </div>
+
+        <div class="real-stat-card">
+
+            <span class="real-stat-label">
+                FORKS
+            </span>
+
+            <strong
+                id="realForksCount"
+            >
+                —
+            </strong>
+
+            <small>
+                مجموع Forkهای واقعی
+            </small>
+
+        </div>
+
+        <div class="real-stat-card">
+
+            <span class="real-stat-label">
+                LANGUAGES
+            </span>
+
+            <strong
+                id="realLanguagesCount"
+            >
+                —
+            </strong>
+
+            <small>
+                زبان‌های شناسایی‌شده
+            </small>
+
+        </div>
+
+        <div class="real-stat-card">
+
+            <span class="real-stat-label">
+                GITHUB PAGES
+            </span>
+
+            <strong
+                id="realPagesCount"
+            >
+                —
+            </strong>
+
+            <small>
+                پروژه‌های دارای Pages
+            </small>
+
+        </div>
+
+        <div class="real-stat-card">
+
+            <span class="real-stat-label">
+                LAST UPDATE
+            </span>
+
+            <strong
+                id="realLastUpdate"
+            >
+                —
+            </strong>
+
+            <small>
+                آخرین بروزرسانی واقعی
+            </small>
+
+        </div>
+
+    </div>
+
+    <div
+        id="githubRealError"
+        class="github-real-error"
+        hidden
+    ></div>
+
+</section>
+
+<style>
+
+.real-stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-top: 28px;
+
+}
+
+.real-stat-card {
+
+    position: relative;
+
+    padding: 24px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    background:
+        var(--card);
+
+    overflow: hidden;
+
+}
+
+.real-stat-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--accent),
+            transparent
+        );
+
+}
+
+.real-stat-label {
+
+    display: block;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    color:
+        var(--muted);
+
+    margin-bottom: 10px;
+
+}
+
+.real-stat-card strong {
+
+    display: block;
+
+    font-size: 34px;
+
+    line-height: 1;
+
+    margin-bottom: 9px;
+
+}
+
+.real-stat-card small {
+
+    color:
+        var(--muted);
+
+    font-size: 12px;
+
+}
+
+.github-live-status {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 70px;
+
+    color:
+        var(--muted);
+
+    font-size: 13px;
+
+}
+
+.github-live-loader {
+
+    width: 18px;
+
+    height: 18px;
+
+    border:
+        2px solid var(--border);
+
+    border-top-color:
+        var(--accent);
+
+    border-radius: 50%;
+
+    animation:
+        realGithubSpin .8s linear infinite;
+
+}
+
+@keyframes realGithubSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.github-real-error {
+
+    margin-top: 20px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(255,80,80,.3);
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,80,80,.06);
+
+    color:
+        var(--muted);
+
+    text-align: center;
+
+}
+
+@media (max-width: 850px) {
+
+    .real-stats-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .real-stats-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
+
+<script>
+
+(function () {
+
+    const USERNAME =
+        "mobinnoroozi391-AFIS";
+
+    const API =
+        "https://api.github.com";
+
+    const projectCount =
+        document.getElementById(
+            "realProjectsCount"
+        );
+
+    const starsCount =
+        document.getElementById(
+            "realStarsCount"
+        );
+
+    const forksCount =
+        document.getElementById(
+            "realForksCount"
+        );
+
+    const languagesCount =
+        document.getElementById(
+            "realLanguagesCount"
+        );
+
+    const pagesCount =
+        document.getElementById(
+            "realPagesCount"
+        );
+
+    const lastUpdate =
+        document.getElementById(
+            "realLastUpdate"
+        );
+
+    const status =
+        document.getElementById(
+            "githubLiveStatus"
+        );
+
+    const errorBox =
+        document.getElementById(
+            "githubRealError"
+        );
+
+    if (!projectCount) {
+        return;
+    }
+
+    function formatNumber(number) {
+
+        return new Intl.NumberFormat(
+            "fa-IR"
+        ).format(number);
+
+    }
+
+    function formatDate(dateString) {
+
+        if (!dateString) {
+            return "—";
+        }
+
+        return new Intl.DateTimeFormat(
+            "fa-IR",
+            {
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+            }
+        ).format(
+            new Date(dateString)
+        );
+
+    }
+
+    async function getRepositories() {
+
+        let page = 1;
+
+        let repositories = [];
+
+        while (true) {
+
+            const url =
+                `${API}/users/${USERNAME}/repos` +
+                `?type=owner` +
+                `&per_page=100` +
+                `&page=${page}` +
+                `&sort=updated`;
+
+            const response =
+                await fetch(
+                    url,
+                    {
+                        headers: {
+                            "Accept":
+                                "application/vnd.github+json"
+                        }
+                    }
+                );
+
+            if (!response.ok) {
+
+                throw new Error(
+                    `GitHub API ${response.status}`
+                );
+
+            }
+
+            const data =
+                await response.json();
+
+            if (
+                !Array.isArray(data) ||
+                data.length === 0
+            ) {
+
+                break;
+
+            }
+
+            repositories.push(
+                ...data
+            );
+
+            if (
+                data.length < 100
+            ) {
+
+                break;
+
+            }
+
+            page++;
+
+            if (page > 20) {
+
+                break;
+
+            }
+
+        }
+
+        return repositories;
+
+    }
+
+    async function updateRealStats() {
+
+        try {
+
+            status.innerHTML =
+                "در حال دریافت Repositoryهای واقعی...";
+
+            const allRepos =
+                await getRepositories();
+
+            /*
+             * Portfolio projects:
+             * - public
+             * - owned by user
+             * - not fork
+             * - not archived
+             */
+
+            const projects =
+                allRepos.filter(
+                    repo =>
+                        repo.visibility === "public" &&
+                        repo.fork === false &&
+                        repo.archived === false &&
+                        repo.disabled === false
+                );
+
+            /*
+             * Stars
+             */
+
+            const totalStars =
+                projects.reduce(
+                    (sum, repo) =>
+                        sum +
+                        Number(
+                            repo.stargazers_count || 0
+                        ),
+                    0
+                );
+
+            /*
+             * Forks
+             */
+
+            const totalForks =
+                projects.reduce(
+                    (sum, repo) =>
+                        sum +
+                        Number(
+                            repo.forks_count || 0
+                        ),
+                    0
+                );
+
+            /*
+             * Languages
+             */
+
+            const languages =
+                new Set();
+
+            projects.forEach(
+                repo => {
+
+                    if (
+                        repo.language &&
+                        repo.language.trim()
+                    ) {
+
+                        languages.add(
+                            repo.language.trim()
+                        );
+
+                    }
+
+                }
+            );
+
+            /*
+             * GitHub Pages
+             *
+             * has_pages is supplied
+             * by GitHub Repository API.
+             */
+
+            const pages =
+                projects.filter(
+                    repo =>
+                        repo.has_pages === true
+                );
+
+            /*
+             * Last update
+             */
+
+            let latestUpdate = null;
+
+            projects.forEach(
+                repo => {
+
+                    if (
+                        !repo.updated_at
+                    ) {
+                        return;
+                    }
+
+                    if (
+                        !latestUpdate ||
+                        new Date(
+                            repo.updated_at
+                        ) >
+                        new Date(
+                            latestUpdate
+                        )
+                    ) {
+
+                        latestUpdate =
+                            repo.updated_at;
+
+                    }
+
+                }
+            );
+
+            /*
+             * Update UI
+             */
+
+            projectCount.textContent =
+                formatNumber(
+                    projects.length
+                );
+
+            starsCount.textContent =
+                formatNumber(
+                    totalStars
+                );
+
+            forksCount.textContent =
+                formatNumber(
+                    totalForks
+                );
+
+            languagesCount.textContent =
+                formatNumber(
+                    languages.size
+                );
+
+            pagesCount.textContent =
+                formatNumber(
+                    pages.length
+                );
+
+            lastUpdate.textContent =
+                formatDate(
+                    latestUpdate
+                );
+
+            status.innerHTML =
+                `
+                <span>
+                    ✓ اطلاعات زنده GitHub بروزرسانی شد
+                </span>
+                `;
+
+            /*
+             * Make the real repository data
+             * available to the rest of the page.
+             */
+
+            window.MobinGitHubData = {
+
+                allRepositories:
+                    allRepos,
+
+                projects:
+                    projects,
+
+                stars:
+                    totalStars,
+
+                forks:
+                    totalForks,
+
+                languages:
+                    [...languages],
+
+                pages:
+                    pages,
+
+                latestUpdate:
+                    latestUpdate
+
+            };
+
+            document.dispatchEvent(
+                new CustomEvent(
+                    "mobin:github-data-ready",
+                    {
+                        detail:
+                            window.MobinGitHubData
+                    }
+                )
+            );
+
+            /*
+             * Update generic counters if they exist.
+             */
+
+            const counterMap = {
+
+                projects:
+                    projects.length,
+
+                stars:
+                    totalStars,
+
+                forks:
+                    totalForks,
+
+                languages:
+                    languages.size,
+
+                pages:
+                    pages.length
+
+            };
+
+            document
+                .querySelectorAll(
+                    "[data-github-stat]"
+                )
+                .forEach(
+                    element => {
+
+                        const key =
+                            element.dataset
+                                .githubStat;
+
+                        if (
+                            key in counterMap
+                        ) {
+
+                            element.textContent =
+                                formatNumber(
+                                    counterMap[key]
+                                );
+
+                        }
+
+                    }
+                );
+
+        } catch (error) {
+
+            console.error(
+                "Real GitHub data error:",
+                error
+            );
+
+            status.innerHTML =
+                "اطلاعات GitHub در دسترس نیست.";
+
+            errorBox.hidden =
+                false;
+
+            errorBox.innerHTML =
+                `
+                <strong>
+                    آمار زنده قابل دریافت نیست.
+                </strong>
+
+                <br>
+
+                <small>
+                    برای جلوگیری از نمایش عدد فیک،
+                    در این حالت مقدار «—» نمایش داده می‌شود.
+                </small>
+                `;
+
+            /*
+             * IMPORTANT:
+             * Never replace unavailable data
+             * with fake numbers.
+             */
+
+            projectCount.textContent = "—";
+            starsCount.textContent = "—";
+            forksCount.textContent = "—";
+            languagesCount.textContent = "—";
+            pagesCount.textContent = "—";
+            lastUpdate.textContent = "—";
+
+        }
+
+    }
+
+    updateRealStats();
+
+})();
+
+</script>
+
+<!-- REAL-GITHUB-DATA-END --><section id="projects">
 
 <div class="container">
 
@@ -3030,6 +3841,58 @@ Built with HTML • CSS • JavaScript
 
 </div>
 
+<div
+    class="data-transparency"
+    title="این آمار از GitHub API دریافت می‌شود."
+>
+    <span class="data-dot"></span>
+    داده زنده از GitHub
+</div>
+
+<style>
+
+.data-transparency {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 14px;
+
+    padding: 7px 11px;
+
+    border-radius: 999px;
+
+    border:
+        1px solid var(--border);
+
+    color:
+        var(--muted);
+
+    font-size: 11px;
+
+}
+
+.data-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        #22c55e;
+
+    box-shadow:
+        0 0 10px
+        rgba(34,197,94,.5);
+
+}
+
+</style>
 </footer>
 
 <!-- COMMAND PALETTE -->
@@ -3453,5 +4316,6 @@ console.log(
 
 </body>
 </html>
+
 
 
