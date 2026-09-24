@@ -1012,6 +1012,7 @@ footer{
     <a href="#about">درباره من</a>
     <a href="#skills">مهارت‌ها</a>
     <a href="#projects">پروژه‌ها</a>
+<a href="#github-projects">GitHub</a>
     <a href="#lab">Lab</a>
     <a href="#services">خدمات</a>
     <a href="#contact">تماس</a>
@@ -1608,7 +1609,716 @@ Data & Trading Systems
 
 <!-- LAB -->
 
-<section id="lab">
+<!-- AUTO-GITHUB-PROJECTS-START -->
+
+<section class="section auto-github-section" id="github-projects">
+
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">LIVE FROM GITHUB</span>
+            <h2>پروژه‌های GitHub</h2>
+            <p>
+                این بخش مستقیماً از GitHub دریافت می‌شود و پروژه‌های عمومی
+                به‌صورت خودکار در اینجا نمایش داده می‌شوند.
+            </p>
+        </div>
+
+        <a
+            class="btn btn-primary"
+            href="https://github.com/mobinnoroozi391-AFIS"
+            target="_blank"
+            rel="noopener"
+        >
+            مشاهده GitHub
+        </a>
+    </div>
+
+    <div class="github-toolbar">
+
+        <div class="github-search-wrap">
+            <span>⌕</span>
+            <input
+                id="githubProjectSearch"
+                type="search"
+                placeholder="جستجوی پروژه..."
+                autocomplete="off"
+            >
+        </div>
+
+        <select id="githubLanguageFilter">
+            <option value="all">همه زبان‌ها</option>
+        </select>
+
+        <select id="githubSort">
+            <option value="updated">آخرین بروزرسانی</option>
+            <option value="stars">بیشترین ستاره</option>
+            <option value="name">نام پروژه</option>
+        </select>
+
+    </div>
+
+    <div id="githubStatus" class="github-status">
+        <div class="github-loader"></div>
+        <span>در حال دریافت پروژه‌های GitHub...</span>
+    </div>
+
+    <div id="githubProjectsGrid" class="projects-grid github-projects-grid"></div>
+
+    <div id="githubEmpty" class="github-empty" hidden>
+        <div class="github-empty-icon">⌕</div>
+        <h3>پروژه‌ای پیدا نشد</h3>
+        <p>عبارت جستجو یا فیلتر را تغییر بده.</p>
+    </div>
+
+    <div class="github-footer">
+
+        <span id="githubProjectCount">
+            در حال دریافت پروژه‌ها...
+        </span>
+
+        <a
+            href="https://github.com/mobinnoroozi391-AFIS?tab=repositories"
+            target="_blank"
+            rel="noopener"
+        >
+            مشاهده همه Repositoryها در GitHub →
+        </a>
+
+    </div>
+
+</section>
+
+<style>
+
+.github-toolbar {
+    display: grid;
+    grid-template-columns: 1fr 180px 210px;
+    gap: 12px;
+    margin: 28px 0;
+}
+
+.github-search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 14px;
+    padding: 0 16px;
+}
+
+.github-search-wrap span {
+    font-size: 22px;
+    opacity: .65;
+}
+
+.github-search-wrap input,
+.github-toolbar select {
+    width: 100%;
+    height: 50px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    border-radius: 14px;
+    padding: 0 14px;
+    outline: none;
+    font-family: inherit;
+}
+
+.github-search-wrap input {
+    border: 0;
+    background: transparent;
+    padding: 0;
+}
+
+.github-search-wrap:focus-within {
+    border-color: var(--accent);
+}
+
+.github-toolbar select:focus {
+    border-color: var(--accent);
+}
+
+.github-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 100px;
+    color: var(--muted);
+}
+
+.github-loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: githubSpin .8s linear infinite;
+}
+
+@keyframes githubSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.github-projects-grid {
+    margin-top: 10px;
+}
+
+.github-project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.github-project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent),
+        transparent
+    );
+    opacity: .7;
+}
+
+.github-project-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.github-project-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid var(--border);
+    font-size: 21px;
+}
+
+.github-project-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.github-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.github-project-card h3 {
+    margin-bottom: 9px;
+    word-break: break-word;
+}
+
+.github-project-card p {
+    min-height: 48px;
+}
+
+.github-project-stats {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.github-project-stats span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.github-project-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.github-project-actions a {
+    text-decoration: none;
+}
+
+.github-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.github-footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.github-empty {
+    text-align: center;
+    padding: 70px 20px;
+    color: var(--muted);
+}
+
+.github-empty-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 850px) {
+
+    .github-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .github-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+</style>
+
+<script>
+
+(function () {
+
+    const GITHUB_USERNAME = "mobinnoroozi391-AFIS";
+
+    const grid = document.getElementById("githubProjectsGrid");
+    const status = document.getElementById("githubStatus");
+    const searchInput = document.getElementById("githubProjectSearch");
+    const languageFilter = document.getElementById("githubLanguageFilter");
+    const sortSelect = document.getElementById("githubSort");
+    const emptyBox = document.getElementById("githubEmpty");
+    const countBox = document.getElementById("githubProjectCount");
+
+    if (!grid) return;
+
+    let repositories = [];
+    let filteredRepositories = [];
+
+    function escapeHTML(value) {
+
+        if (value === null || value === undefined) {
+            return "";
+        }
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+    function formatDate(dateString) {
+
+        if (!dateString) {
+            return "نامشخص";
+        }
+
+        const date = new Date(dateString);
+
+        return new Intl.DateTimeFormat("fa-IR", {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+        }).format(date);
+
+    }
+
+    function languageIcon(language) {
+
+        const icons = {
+            JavaScript: "JS",
+            TypeScript: "TS",
+            Python: "PY",
+            HTML: "HTML",
+            CSS: "CSS",
+            Java: "☕",
+            C: "C",
+            "C++": "C++",
+            "C#": "C#",
+            PHP: "PHP",
+            Dart: "DART",
+            Kotlin: "K",
+            Swift: "SWIFT",
+            Go: "GO",
+            Rust: "RS"
+        };
+
+        return icons[language] || "GH";
+
+    }
+
+    function repoCard(repo) {
+
+        const description =
+            repo.description ||
+            "پروژه‌ای از مجموعه کارهای Mobin Noroozi";
+
+        const language =
+            repo.language ||
+            "Unknown";
+
+        const homepage =
+            repo.homepage &&
+            repo.homepage.trim() !== ""
+                ? repo.homepage.trim()
+                : null;
+
+        const stars =
+            Number(repo.stargazers_count || 0);
+
+        const forks =
+            Number(repo.forks_count || 0);
+
+        const license =
+            repo.license?.spdx_id ||
+            "";
+
+        return `
+            <article class="project-card github-project-card reveal">
+
+                <div class="github-project-top">
+
+                    <div class="github-project-icon">
+                        ${languageIcon(escapeHTML(language))}
+                    </div>
+
+                    <div class="github-project-meta">
+
+                        <span class="github-badge">
+                            ${escapeHTML(language)}
+                        </span>
+
+                        ${repo.fork
+                            ? `<span class="github-badge">Fork</span>`
+                            : `<span class="github-badge">Original</span>`
+                        }
+
+                    </div>
+
+                </div>
+
+                <h3>
+                    ${escapeHTML(repo.name)}
+                </h3>
+
+                <p>
+                    ${escapeHTML(description)}
+                </p>
+
+                <div class="github-project-stats">
+
+                    <span>
+                        ★ ${stars}
+                    </span>
+
+                    <span>
+                        Fork ${forks}
+                    </span>
+
+                    <span>
+                        ${formatDate(repo.updated_at)}
+                    </span>
+
+                    ${license
+                        ? `<span>${escapeHTML(license)}</span>`
+                        : ""
+                    }
+
+                </div>
+
+                <div class="github-project-actions">
+
+                    <a
+                        class="btn btn-small btn-primary"
+                        href="${escapeHTML(repo.html_url)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub ↗
+                    </a>
+
+                    ${
+                        homepage
+                        ?
+                        `
+                        <a
+                            class="btn btn-small"
+                            href="${escapeHTML(homepage)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Live Demo ↗
+                        </a>
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+
+            </article>
+        `;
+
+    }
+
+    function renderProjects() {
+
+        const query =
+            (searchInput.value || "")
+                .trim()
+                .toLowerCase();
+
+        const language =
+            languageFilter.value;
+
+        filteredRepositories =
+            repositories.filter(repo => {
+
+                const matchesSearch =
+                    !query ||
+                    repo.name.toLowerCase().includes(query) ||
+                    (repo.description || "")
+                        .toLowerCase()
+                        .includes(query) ||
+                    (repo.language || "")
+                        .toLowerCase()
+                        .includes(query);
+
+                const matchesLanguage =
+                    language === "all" ||
+                    (repo.language || "Unknown") === language;
+
+                return matchesSearch && matchesLanguage;
+
+            });
+
+        const sortMode =
+            sortSelect.value;
+
+        filteredRepositories.sort((a, b) => {
+
+            if (sortMode === "stars") {
+                return b.stargazers_count - a.stargazers_count;
+            }
+
+            if (sortMode === "name") {
+                return a.name.localeCompare(
+                    b.name,
+                    undefined,
+                    { sensitivity: "base" }
+                );
+            }
+
+            return new Date(b.updated_at) -
+                   new Date(a.updated_at);
+
+        });
+
+        grid.innerHTML =
+            filteredRepositories
+                .map(repoCard)
+                .join("");
+
+        countBox.textContent =
+            `${filteredRepositories.length} پروژه نمایش داده شد`;
+
+        emptyBox.hidden =
+            filteredRepositories.length !== 0;
+
+        if (
+            typeof window.initRevealAnimations === "function"
+        ) {
+            window.initRevealAnimations();
+        }
+
+    }
+
+    function createLanguageFilters() {
+
+        const languages =
+            [...new Set(
+                repositories
+                    .map(repo => repo.language)
+                    .filter(Boolean)
+            )]
+            .sort();
+
+        languageFilter.innerHTML =
+            `<option value="all">همه زبان‌ها</option>` +
+            languages
+                .map(lang =>
+                    `<option value="${escapeHTML(lang)}">
+                        ${escapeHTML(lang)}
+                    </option>`
+                )
+                .join("");
+
+    }
+
+    async function fetchAllRepositories() {
+
+        let page = 1;
+        let all = [];
+
+        while (true) {
+
+            const url =
+                `https://api.github.com/users/${GITHUB_USERNAME}/repos` +
+                `?per_page=100&sort=updated&page=${page}`;
+
+            const response =
+                await fetch(url, {
+                    headers: {
+                        "Accept": "application/vnd.github+json"
+                    }
+                });
+
+            if (!response.ok) {
+
+                if (response.status === 403) {
+                    throw new Error(
+                        "GitHub API rate limit reached."
+                    );
+                }
+
+                throw new Error(
+                    `GitHub API error: ${response.status}`
+                );
+
+            }
+
+            const data =
+                await response.json();
+
+            if (!Array.isArray(data) || data.length === 0) {
+                break;
+            }
+
+            all.push(...data);
+
+            if (data.length < 100) {
+                break;
+            }
+
+            page++;
+
+            if (page > 20) {
+                break;
+            }
+
+        }
+
+        return all;
+
+    }
+
+    async function initGitHubProjects() {
+
+        try {
+
+            const data =
+                await fetchAllRepositories();
+
+            repositories =
+                data.filter(repo =>
+                    !repo.archived
+                );
+
+            createLanguageFilters();
+
+            status.style.display = "none";
+
+            renderProjects();
+
+        } catch (error) {
+
+            console.error(
+                "GitHub Projects Error:",
+                error
+            );
+
+            status.innerHTML = `
+                <div style="text-align:center">
+
+                    <strong>
+                        دریافت پروژه‌های GitHub ناموفق بود.
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        ${escapeHTML(error.message)}
+                    </small>
+
+                    <br><br>
+
+                    <a
+                        class="btn btn-small btn-primary"
+                        href="https://github.com/${GITHUB_USERNAME}?tab=repositories"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        مشاهده مستقیم GitHub
+                    </a>
+
+                </div>
+            `;
+
+        }
+
+    }
+
+    searchInput.addEventListener(
+        "input",
+        renderProjects
+    );
+
+    languageFilter.addEventListener(
+        "change",
+        renderProjects
+    );
+
+    sortSelect.addEventListener(
+        "change",
+        renderProjects
+    );
+
+    initGitHubProjects();
+
+})();
+
+</script>
+
+<!-- AUTO-GITHUB-PROJECTS-END --><section id="lab">
 
 <div class="container">
 
@@ -2363,3 +3073,4 @@ console.log(
 
 </body>
 </html>
+
